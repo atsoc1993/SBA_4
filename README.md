@@ -34,6 +34,7 @@
 ## The "/addressAssets" path:
 - One getter method: `/:address`
 
+**Get Methods:**
 `/` (root) requires a param of a particular address, and returns assets held by that address that are not the native chain asset (Standard Assets)
 
 ## EJS Views Implementation

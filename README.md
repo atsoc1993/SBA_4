@@ -24,6 +24,7 @@
 ## The "/balances" Path:
 - Three getter methods: `/`(root), `/display`, `/:address`
 
+**Get Methods:**
 `/` provides all addresses and their respective balance in a single json object
 `/display` displays all addresses and their respective balance
 `/:address` passing an address param at root returns the balance of the requested address

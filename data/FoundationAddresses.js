@@ -98,7 +98,6 @@ addresses
     })
     .post('/add', async (req, res, next) => {
         let address = req.body.address
-        let label = req.body.label
         if (!req.body.address || !req.body.label) {
             let error = new Error("Missing an address or label field in body")
             error.status = 400

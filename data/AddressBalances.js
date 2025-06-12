@@ -20,7 +20,6 @@ balances
         res.send(htmlCode);
     })
     .get('/:address', (req, res, next) => {
-        let queries = req.query
         let balance = Object.entries(addressBalances).filter((entry) => req.params.address === entry[0])
         if (balance.length === 0) {
             let error = new Error('No address found')

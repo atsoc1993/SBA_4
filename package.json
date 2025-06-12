@@ -20,6 +20,7 @@
   "homepage": "https://github.com/atsoc1993/SBA_4#readme",
   "dependencies": {
     "@algorandfoundation/algokit-utils": "^9.1.0",
+    "ejs": "^3.1.10",
     "express": "^5.1.0"
   }
 }

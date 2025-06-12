@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Foundation Wallets</title>
+</head>
+<body>
+<ul>
+  <% for (let [address, label] of Object.entries(foundationMarketWallets)) { %>
+      <p><%= label %>: <%= address %></p>
+  <% } %>
+</ul>
+</body>
+</html>

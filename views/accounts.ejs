@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <title>Foundation Wallets</title>
 </head>
-<body>
+<body style="background-color: black;">
 <% for (let [address, label] of Object.entries(foundationMarketWallets)) { %>
-    <p><%= label %>: <%= address %></p>
+    <p style="color: white; border: 1px solid black; box-shadow: 5px 7px 6px green; border-radius: 20px; width: 700px;margin: 50px;"><strong><%= label %></strong>: <%= address %></p>
 <% } %>
 </body>
 </html>

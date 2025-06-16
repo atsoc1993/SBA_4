@@ -1,12 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Foundation Wallets</title>
+  <style>
+    h1 {
+      color:white
+    }
+  </style>
 </head>
+
 <body style="background-color: black;">
-<% for (let [address, label] of Object.entries(foundationMarketWallets)) { %>
-    <p style="color: white; border: 1px solid black; box-shadow: 5px 7px 6px green; border-radius: 20px; width: 700px;margin: 50px;"><strong><%= label %></strong>: <%= address %></p>
-<% } %>
+  <h1>Get Addresses</h1>
+  <form action="/addresses/" method="GET">
+    <button type="submit">Get Addresses as Json</button>
+  </form>
+  <h1>Display Addresses</h1>
+  <form action="/addresses/display/" method="GET">
+    <button type="submit">Display Addresses</button>
+  </form>
+  <h1>Get Label By Address</h1>
+  <form action="/addresses/getLabel/:address" method="GET">
+    <input type="text" name="address" placeholder="Address" required>
+    <button type="submit">Get Address By Label</button>
+  </form>
+  <h1>Get Address By Label</h1>
+  <form action="/addresses/getAddressByLabel/:label" method="GET">
+    <input type="text" name="label" placeholder="Label" required>
+    <button type="submit">Get Label By Address</button>
+  </form>
+  <h1>Add an Address & Label</h1>
+  <form action="/addresses/add" method="POST">
+    <input type="text" name="address" placeholder="Address" required>
+    <input type="text" name="label" placeholder="Label" required>
+    <button type="submit">Add</button>
+  </form>
+  <h1>Add an Address & Label</h1>
+  <form action="/addresses/add" method="POST">
+    <input type="text" name="address" placeholder="Address" required>
+    <input type="text" name="label" placeholder="Label" required>
+    <button type="submit">Add</button>
+  </form>
+    <h1>All addresses</h1>
+    <% for (let [address, label] of Object.entries(foundationMarketWallets)) { %>
+      <p
+        style="color: white; border: 1px solid black; box-shadow: 5px 7px 6px green; border-radius: 20px; width: 700px;margin: 50px;">
+        <strong>
+          <%= label %>
+        </strong>: <%= address %>
+      </p>
+      <% } %>
 </body>
+
 </html>

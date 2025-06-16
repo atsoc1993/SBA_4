@@ -75,7 +75,7 @@ addresses
     })
     .get('/getLabel/:address', (req, res, next) => {
         // test with KEU3FQHJ5CVO7DC5OJKHR74Z6M3X26O4IZYHHAIV6T7SLYHJJG32LCHICQ
-        let wallet = Object.entries(foundationMarketWallets).filter((wallet) => wallet[0] === req.params.address)
+        let wallet = Object.entries(foundationMarketWallets).filter((wallet) => wallet[0] === req.query.address)
         if (wallet.length === 0) {
             let error = new Error('Address not found')
             error.status = 404
@@ -86,7 +86,7 @@ addresses
     })
     .get('/getAddressByLabel/:label', (req, res, next) => {
         // test with Foundation: Treasury 1
-        let labelParam = req.params.label.replace("'", '')
+        let labelParam = req.query.label.replace("'", '')
         let wallet = Object.entries(foundationMarketWallets).filter((wallet) => wallet[1] === labelParam)
         if (wallet.length === 0) {
             let error = new Error('Label not found')
@@ -97,7 +97,10 @@ addresses
         }
     })
     .post('/add', async (req, res, next) => {
+        console.log("Testing")
+        console.log(req)
         let address = req.body.address
+        console.log(req.body)
         if (!req.body.address || !req.body.label) {
             let error = new Error("Missing an address or label field in body")
             error.status = 400
@@ -109,10 +112,10 @@ addresses
  
                 if (address in foundationMarketWallets) {
                     foundationMarketWallets[req.body.address] = req.body.label
-                    res.status(201).send('Resource updated')
+                    res.status(200).send('Resource updated')
                 } else {
                     foundationMarketWallets[req.body.address] = req.body.label
-                    res.status(201).send("Resource Added")
+                    res.status(200).send("Resource Added")
                 }
             } catch (err) {
                 let error = new Error("Not a valid Algorand address")
@@ -163,6 +166,7 @@ addresses
 // address.engine()
 
 addresses.use((err, req, res, next) => {
+    console.log(err.status)
     res.status(err.status).send(err.message);
 })
 
